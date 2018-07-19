@@ -1,2 +1,2 @@
-# ansible-training-bgp-j2
-Two Cumulus switches running BGP and configured with Jinja / J2 templates
+# ansible-training-ospf-nclu
+Two switches configured with OSPF using Cumulus' NCLU Ansible module
