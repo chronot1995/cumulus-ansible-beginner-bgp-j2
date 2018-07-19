@@ -18,3 +18,4 @@ iface mgmt
 {% for interface in node[inventory_hostname]["ports"] -%}
 auto {{interface}}
 iface {{interface}}
+{% endfor %}
