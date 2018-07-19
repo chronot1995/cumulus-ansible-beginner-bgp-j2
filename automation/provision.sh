@@ -1,2 +1,2 @@
 #!/bin/bash
-ansible-playbook training-bgp-nclu.yml
+ansible-playbook begin-training-bgp-j2.yml
