@@ -2,7 +2,7 @@
 # Created by Topology-Converter v4.6.8
 #    Template Revision: v4.6.8
 #    https://github.com/cumulusnetworks/topology_converter
-#    using topology data from: ansible-training-bgp-nclu.dot
+#    using topology data from: ansible-training-bgp-j2.dot
 
 echo "################################################"
 echo "  Running Automatic Management Server Setup..."
@@ -15,8 +15,8 @@ echo " Detected vagrant user is: $username"
 #       KNOBS
 #######################
 
-REPOSITORY="https://github.com/CumulusNetworks/ansible-training-bgp-nclu"
-REPONAME="ansible-training-bgp-nclu"
+REPOSITORY="https://github.com/CumulusNetworks/begin-ansible-training-bgp-j2"
+REPONAME="begin-ansible-training-bgp-j2"
 
 #Install Automation Tools
 puppet=0
@@ -50,6 +50,7 @@ install_ansible(){
 	sudo pip install setuptools --upgrade
 	sudo pip install ansible==$ansible_version --upgrade
 }
+
 
 ## MOTD
 echo " ### Overwriting MOTD ###"
