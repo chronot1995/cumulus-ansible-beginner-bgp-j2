@@ -6,12 +6,6 @@
     backup: yes
   notify: restart frr
 
-- name: L4 hash policy
-  sysctl:
-    name: net.ipv4.fib_multipath_hash_policy
-    value: 1
-    state: present
-
 - name: Copy interfaces configuration
   template:
     src: interfaces.j2
