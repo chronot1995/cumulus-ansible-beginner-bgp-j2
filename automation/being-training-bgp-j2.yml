@@ -1,3 +1,7 @@
+#####
+# Host config for begin-training-bgp-j2
+#####
+
 - hosts: switches
   become: true
   roles:
