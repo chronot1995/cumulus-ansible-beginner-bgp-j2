@@ -1086,7 +1086,7 @@
 				</dict>
 				<dict>
 					<key>Bounds</key>
-					<string>{{310, 657.35998530685902}, {325, 25}}</string>
+					<string>{{310, 657.35998530685902}, {300, 25}}</string>
 					<key>Class</key>
 					<string>ShapedGraphic</string>
 					<key>FitText</key>
@@ -1138,7 +1138,7 @@
 {\*\expandedcolortbl;;}
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 
-\f0\b\fs42 \cf0 begin-ansible-training-bgp-nclu}</string>
+\f0\b\fs42 \cf0 begin-ansible-training-bgp-j2}</string>
 						<key>VerticalPad</key>
 						<real>0.0</real>
 					</dict>
