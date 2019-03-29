@@ -1,5 +1,9 @@
 ## begin-ansible-training-bgp-j2
 
+### UPDATES:
+
+03/29/2019 - Updated to 3.7.4 of Cumulus Linux
+
 ### Summary:
 
 This is an Ansible demo which configures two Cumulus VX switches with BGP using J2 / Jinja2 templates
