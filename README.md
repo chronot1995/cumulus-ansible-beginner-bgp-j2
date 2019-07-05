@@ -2,6 +2,7 @@
 
 ### UPDATES:
 
+07/05/2019 - Updated to 3.7.6 of Cumulus Linux
 03/29/2019 - Updated to 3.7.4 of Cumulus Linux
 
 ### Summary:
