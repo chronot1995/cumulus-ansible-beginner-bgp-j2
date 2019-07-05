@@ -21,7 +21,7 @@ REPONAME="begin-ansible-training-bgp-j2"
 #Install Automation Tools
 puppet=0
 ansible=1
-ansible_version=2.6.2
+ansible_version=2.7.10
 
 #######################
 
