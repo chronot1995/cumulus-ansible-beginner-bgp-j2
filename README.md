@@ -1,8 +1,12 @@
-### THIS
-
 ## begin-ansible-training-bgp-j2
 
 ### UPDATES:
+
+07/31/2019
+  - Upgraded to Cumulus Linux 3.7.7
+  - Upgraded the underlying Topology Converter to 4.7.0
+  - Upgraded and tested Vagrant 2.2.5
+  - Upgraded and tested Virtualbox 6.0.10
 
 07/05/2019 - Updated to 3.7.6 of Cumulus Linux
 03/29/2019 - Updated to 3.7.4 of Cumulus Linux
@@ -19,11 +23,11 @@ This is an Ansible demo which configures two Cumulus VX switches with BGP using 
 
 First, make sure that the following is currently running on your machine:
 
-1. Vagrant > version 2.1.2
+1. Vagrant > version 2.2.5
 
     https://www.vagrantup.com/
 
-2. Virtualbox > version 5.2.16
+2. Virtualbox > version 6.0.10
 
     https://www.virtualbox.org
 
@@ -139,31 +143,24 @@ The following stanza:
     #Install Automation Tools
     puppet=0
     ansible=1
-    ansible_version=2.3.1.0
+    ansible_version=2.6.3
 
 Will be replaced with the following:
 
     #Install Automation Tools
     puppet=0
     ansible=1
-    ansible_version=2.6.2
+    ansible_version=2.8.3
 
-The following stanza will replace the install_ansible function:
-
-```
-install_ansible(){
-echo " ### Installing Ansible... ###"
-apt-get install -qy ansible sshpass libssh-dev python-dev libssl-dev libffi-dev
-sudo pip install pip --upgrade
-sudo pip install setuptools --upgrade
-sudo pip install ansible==$ansible_version --upgrade
-}```
+`
 
 Add the following ```echo``` right before the end of the file.
 
     echo " ### Adding .bash_profile to auto login as cumulus user"
     echo "sudo su - cumulus" >> /home/vagrant/.bash_profile
     echo "exit" >> /home/vagrant/.bash_profile
+    echo "### Adding .ssh_config to avoid HostKeyChecking"
+    printf "Host * \n\t StrictHostKeyChecking no\n" >> /home/cumulus/.ssh/config
 
     echo "############################################"
     echo "      DONE!"
