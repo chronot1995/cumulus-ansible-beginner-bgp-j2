@@ -149,8 +149,6 @@ Will be replaced with the following:
     ansible=1
     ansible_version=2.8.3
 
-`
-
 Add the following ```echo``` right before the end of the file.
 
     echo " ### Adding .bash_profile to auto login as cumulus user"
