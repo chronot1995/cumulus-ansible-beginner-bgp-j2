@@ -2,7 +2,7 @@
 
 ### UPDATES:
 
-07/31/2019
+07/31/2019:
   - Upgraded to Cumulus Linux 3.7.7
   - Upgraded the underlying Topology Converter to 4.7.0
   - Upgraded and tested Vagrant 2.2.5
