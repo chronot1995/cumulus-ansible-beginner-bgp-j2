@@ -8,9 +8,6 @@
   - Upgraded and tested Vagrant 2.2.5
   - Upgraded and tested Virtualbox 6.0.10
 
-07/05/2019 - Updated to 3.7.6 of Cumulus Linux
-03/29/2019 - Updated to 3.7.4 of Cumulus Linux
-
 ### Summary:
 
 This is an Ansible demo which configures two Cumulus VX switches with BGP using J2 / Jinja2 templates
