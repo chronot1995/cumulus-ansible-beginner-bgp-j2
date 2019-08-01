@@ -3,10 +3,10 @@
 echo "#################################"
 echo "  Running Extra_Server_Config.sh"
 echo "#################################"
-sudo su
 
-useradd cumulus -m -s /bin/bash
-echo "cumulus:CumulusLinux!" | chpasswd
+###sudo su
+###useradd cumulus -m -s /bin/bash
+### echo "cumulus:CumulusLinux!" | chpasswd
 
 ## Atilla's Rec - fixing the SSH Key issues:
 sudo su

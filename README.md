@@ -137,6 +137,16 @@ B>* 10.2.2.2/32 [20/0] via fe80::4638:39ff:fe00:2, swp1, 00:06:02
 
 The following stanza:
 
+echo " ### Creating cumulus user ###"
+useradd -m cumulus
+
+Will be replaced with the following:
+
+echo " ### Creating cumulus user ###"
+useradd -m cumulus
+
+The following stanza:
+
     #Install Automation Tools
     puppet=0
     ansible=1
