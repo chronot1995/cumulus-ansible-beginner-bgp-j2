@@ -129,7 +129,7 @@ B>* 10.2.2.2/32 [20/0] via fe80::4638:39ff:fe00:2, swp1, 00:06:02
 
 3. The following command was used to run the Topology Converter within the vx-simulation directory:
 
-    ```python2 topology_converter.py begin-ansible-training-bgp-j2.dot -c```
+    ```python3 topology_converter.py begin-ansible-training-bgp-j2.dot -c```
 
     After the above command is executed, the following configuration changes are necessary:
 
