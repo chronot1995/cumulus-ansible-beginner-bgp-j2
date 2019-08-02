@@ -66,22 +66,22 @@ Interface remapping is the process by which interfaces are renamed to match the 
 ## Installation
 
 ### Ubuntu
-Both 16.04 and 14.04.
+Both 18.04 and 16.04.
 
 ```
-sudo apt install python-pip
-sudo pip install --upgrade pip
-sudo pip install setuptools
-sudo pip install pydotplus
-sudo pip install jinja2
-sudo pip install ipaddress
+sudo apt install python3-pip
+sudo pip3 install --upgrade pip
+sudo pip3 install setuptools
+sudo pip3 install pydotplus
+sudo pip3 install jinja2
+sudo pip3 install ipaddress
 ```
 
 ### Mac
 
 
 ```
-sudo easy_install pip
+brew install python3
 sudo pip install --upgrade pip
 sudo pip install setuptools
 sudo pip install pydotplus
@@ -167,6 +167,7 @@ There are a number of different sources of Vagrant box images however there are 
 
 For Virtualbox:
 * cumuluscommunity/cumulus-vx
+* generic/ubuntu1804
 * yk0/ubuntu-xenial
 * ubuntu/xenial64
 * boxcutter/ubuntu1404
@@ -176,9 +177,10 @@ For Virtualbox:
 
 For Libvirt:
 * cumuluscommunity/cumulus-vx
-* **Mutated** boxcutter/ubuntu1404
-* debian/jessie64
+* generic/ubuntu1804
 * yk0/ubuntu-xenial
+* debian/jessie64
+* **Mutated** boxcutter/ubuntu1404
 
 *Note: When using Ubuntu1604 with the libvirt provider, an image that was natively built for libvirt must be used like yk0/ubuntu-xenial otherwise the machine will fail to boot. See https://github.com/vagrant-libvirt/vagrant-libvirt/issues/607 , https://github.com/vagrant-libvirt/vagrant-libvirt/issues/609
 
@@ -190,6 +192,12 @@ Note: This list cannot be exhaustive because users can define new [passthrough a
 #### Node(Device) Level Attributes
 * os -- Sets the Operating System (i.e. the vagrant box) to be booted. This can also be provided indirectly when using a "function" as discussed in the [Functional Defaults](#functional-defaults) section or in the "function" attribute below.
 * config -- This defines a provisioning script to be called on the VM during the initial boot process. This script applies a basic interface configuration so the machine will be able to be controlled by vagrant after the interface remap. This can be overloaded with whatever additional configuration you may want your devices to have but keep in mind this script will be executed prior to having [interfaces remapped](#interface-remapping) so any configuration that requires the presence of particular interfaces (like running "ifreload -a") will not be able to complete here.
+* ztp -- (optional) This parameter defines the relative location of a ZTP script which can be loaded into the /var/lib/cumulus/ztp directory for use by the VM during a subsequent reboot.
+Example:
+```
+     "leaf01" [function="leaf" os="CumulusCommunity/cumulus-vx" version="3.7.3" memory="1024" config="./helper_scripts/config_leaf.sh" ztp="../ztp/leaf_ztp.py" ]
+
+```
 * memory -- (mostly optional) Sets the amount of memory (in MB) to be provided to the VM.
 * version -- (optional) Sets the version of the vagrant box to be used.
 * function -- (optional) Correspondes to the [boot order](#boot-ordering) and the [functional defaults](#functional-defaults) in use for the VM. This can specify other attributes like OS and Memory.
@@ -203,6 +211,7 @@ Note: This list cannot be exhaustive because users can define new [passthrough a
 * ssh_port -- (optional) Specify a port (greater than 1024) to be used for SSH to a specific node.
 * vagrant_user -- (optional) Specifies which username vagrant will attempt to login to. MUST have Vagrant Insecure Key Added ahead of time!
 * vagrant -- (optional) This option controls the name of the vagrant interface which vagrant will use to communicate with the guest. The default name of the vagrant interface is set to "vagrant". When using this option it will be necessary to modify the config=./helper_script/xxx.sh" script to reflect the name that has been choosen.
+* ztp -- (optional) Allows for the specification of a ZTP script to be loaded into the /var/lib/cumulus/ztp directory of the target node. Note: _Only for Cumulus Vx VMs._
 * legacy -- (optional) This value controls whether or not the hostname is set in the VM. Typically used when simulating with 2.5.x versions of Vx.
 
 #### Link Level Attributes
