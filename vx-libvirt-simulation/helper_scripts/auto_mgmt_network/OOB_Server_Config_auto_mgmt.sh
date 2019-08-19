@@ -1,8 +1,8 @@
 #!/bin/bash
-# Created by Topology-Converter v{{ version }}
+# Created by Topology-Converter v4.7.0
 #    Template Revision: v4.7.0
 #    https://github.com/cumulusnetworks/topology_converter
-#    using topology data from: {{ topology_file }}
+#    using topology data from: begin-ansible-training-bgp-j2.dot
 
 echo "################################################"
 echo "  Running Automatic Management Server Setup..."
@@ -15,8 +15,8 @@ echo " Detected vagrant user is: $username"
 #       KNOBS
 #######################
 
-REPOSITORY="https://github.com/CumulusNetworks/{{customer}}"
-REPONAME="{{customer}}"
+REPOSITORY="https://github.com/CumulusNetworks/begin-ansible-training-bgp-j2"
+REPONAME="begin-ansible-training-bgp-j2"
 
 #Install Automation Tools
 puppet=0
@@ -40,7 +40,7 @@ install_puppet(){
     sed -i 's/-Xms2g/-Xms512m/g' /etc/default/puppetserver
     sed -i 's/-Xmx2g/-Xmx512m/g' /etc/default/puppetserver
     echo "*" > /etc/puppetlabs/puppet/autosign.conf
-    sed -i 's/{{ devices[0].mgmt_ip }}/{{ devices[0].mgmt_ip }} puppet /g'>> /etc/hosts
+    sed -i 's/192.168.200.254/192.168.200.254 puppet /g'>> /etc/hosts
 }
 
 install_ansible(){
@@ -92,17 +92,14 @@ cat <<EOT > /etc/network/interfaces
 auto lo
 iface lo inet loopback
 
-{% if devices[0].vagrant is defined %}
-auto {{ devices[0].vagrant }}
-iface {{ devices[0].vagrant }} inet dhcp
-{% else %}
+
 auto vagrant
 iface vagrant inet dhcp
-{% endif %}
+
 
 auto eth1
 iface eth1 inet static
-    address {{ devices[0].mgmt_ip }}{{ devices[0].mgmt_cidrmask }}
+    address 192.168.200.254/24
 EOT
 
 echo " ### Applying Network Configuration via IFUPDOWN2... ###"
@@ -137,7 +134,7 @@ restrict ::1
 EOT
 
 echo " ### Creating cumulus user ###"
-useradd -m cumulus
+useradd -m cumulus -m -s /bin/bash
 
 echo " ### Setting Up DHCP ###"
 mv /home/$username/dhcpd.conf /etc/dhcp/dhcpd.conf
@@ -191,7 +188,7 @@ if [ $puppet -eq 1 ]; then
 sudo rm -rf /etc/puppetlabs/code/environments/production
 sudo ln -s  /home/cumulus/$REPONAME/puppet/ /etc/puppetlabs/code/environments/production
 sudo /opt/puppetlabs/bin/puppet module install puppetlabs-stdlib
-#sudo bash -c 'echo "certname = {{ devices[0].mgmt_ip }}" >> /etc/puppetlabs/puppet/puppet.conf'
+#sudo bash -c 'echo "certname = 192.168.200.254" >> /etc/puppetlabs/puppet/puppet.conf'
 echo " ### Starting PUPPET Master ###"
 echo "     (this may take a while 30 secs or so...)"
 sudo systemctl restart puppetserver.service

@@ -3,10 +3,24 @@
 echo "#################################"
 echo "  Running Extra_Server_Config.sh"
 echo "#################################"
-sudo su
+###sudo su
 
+###useradd cumulus -m -s /bin/bash
+###echo "cumulus:CumulusLinux!" | chpasswd
+
+## Atilla's Rec - fixing the SSH Key issues:
+sudo su
 useradd cumulus -m -s /bin/bash
 echo "cumulus:CumulusLinux!" | chpasswd
+usermod -aG sudo cumulus
+echo "cumulus ALL=(ALL) NOPASSWD:ALL" | tee --append /etc/sudoers.d/20_cumulus
+
+SSH_URL="http://192.168.200.254/authorized_keys"
+#Setup SSH key authentication for Ansible
+mkdir -p /home/cumulus/.ssh
+wget -O /home/cumulus/.ssh/authorized_keys $SSH_URL
+chown -R cumulus:cumulus /home/cumulus/.ssh
+## End Atilla's Rec
 
 #Test for Debian-Based Host
 which apt &> /dev/null
