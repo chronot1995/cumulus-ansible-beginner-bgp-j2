@@ -18,27 +18,21 @@ This is an Ansible demo which configures two Cumulus VX switches with BGP using 
 
 ### Initializing the demo environment:
 
-First, make sure that the following is currently running on your machine:
-
-1. Vagrant > version 2.2.5
-
-    https://www.vagrantup.com/
-
-2. Virtualbox > version 6.0.10
-
-    https://www.virtualbox.org
-
-3. Copy the Git repo to your local machine:
+1. Copy the Git repo to your local machine:
 
     ```git clone https://github.com/chronot1995/cumulus-ansible-beginner-bgp-j2```
 
-4. Change directories to the following
+2. Change directories to the following
 
     ```cumulus-ansible-beginner-bgp-j2```
 
-6. Run the following:
+3a. Run the following for Virtualbox:
 
-    ```./start-vagrant-poc.sh```
+    ```./start-vagrant-vbox-poc.sh```
+
+3b. Run the followin for Libvirt:
+
+    ```./start-vagrant-libvirt-poc.sh```
 
 ### Running the Ansible Playbook
 
@@ -115,7 +109,37 @@ B>* 10.2.2.2/32 [20/0] via fe80::4638:39ff:fe00:2, swp1, 00:06:02
   *                    via fe80::4638:39ff:fe00:4, swp2, 00:06:02
 ```
 
+### Install and Setup Virtualbox on Mac
 
+Setup Vagrant for the first time on Mojave, MacOS 10.14.6
+
+1. Install Homebrew 2.1.9 (This will also install Xcode Command Line Tools)
+
+https://brew.sh
+
+2. Install Virtualbox (Tested with 6.0.10)
+
+www.virtualbox.org
+
+I had to go through the install process twice to load the proper security extensions (System Preferences > Security & Privacy > General Tab > "Allow" on bottom)
+
+3. Install Vagrant (Tested with 2.2.5)
+
+www.vagrantup.com
+
+### Install and Setup Linux / libvirt demo environment:
+
+First, make sure that the following is currently running on your machine:
+
+1. This demo was tested on a Ubuntu 16.04 VM w/ 4 processors and 32Gb of Diagram
+
+2. Following the instuctions at the following link:
+
+https://docs.cumulusnetworks.com/cumulus-vx/Development-Environments/Vagrant-and-Libvirt-with-KVM-or-QEMU/
+
+3. Download the latest Vagrant, 2.2.5, from the following location:
+
+    https://www.vagrantup.com/
 
 ### Errata
 
