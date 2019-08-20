@@ -133,9 +133,9 @@ First, make sure that the following is currently running on your machine:
 
 1. This demo was tested on a Ubuntu 16.04 VM w/ 4 processors and 32Gb of Diagram
 
-2. Following the instuctions at the following link:
+2. Following the instructions at the following link:
 
-https://docs.cumulusnetworks.com/cumulus-vx/Development-Environments/Vagrant-and-Libvirt-with-KVM-or-QEMU/
+    https://docs.cumulusnetworks.com/cumulus-vx/Development-Environments/Vagrant-and-Libvirt-with-KVM-or-QEMU/
 
 3. Download the latest Vagrant, 2.2.5, from the following location:
 
