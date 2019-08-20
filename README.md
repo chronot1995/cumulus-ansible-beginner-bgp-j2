@@ -30,15 +30,20 @@ This is an Ansible demo which configures two Cumulus VX switches with BGP using 
 
     ```./start-vagrant-vbox-poc.sh```
 
-3b. Run the followin for Libvirt:
+3b. Run the following for Libvirt:
 
     ```./start-vagrant-libvirt-poc.sh```
 
 ### Running the Ansible Playbook
 
-1. SSH into the oob-mgmt-server:
+1a. SSH into the Virtualbox oob-mgmt-server:
 
-    ```cd vx-simulation```   
+    ```cd vx-vbox-simulation```   
+    ```vagrant ssh oob-mgmt-server```
+
+1a. SSH into the Libvirt oob-mgmt-server:
+
+    ```cd vx-libvirt-simulation```   
     ```vagrant ssh oob-mgmt-server```
 
 2. Copy the Git repo unto the oob-mgmt-server:
