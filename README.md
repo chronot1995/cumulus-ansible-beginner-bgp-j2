@@ -143,7 +143,7 @@ useradd -m cumulus
 Will be replaced with the following:
 
 echo " ### Creating cumulus user ###"
-useradd -m cumulus
+useradd -m cumulus -m -s /bin/bash
 
 The following stanza:
 
@@ -157,7 +157,7 @@ Will be replaced with the following:
     #Install Automation Tools
     puppet=0
     ansible=1
-    ansible_version=2.8.3
+    ansible_version=2.8.4
 
 Add the following ```echo``` right before the end of the file.
 
