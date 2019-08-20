@@ -115,17 +115,17 @@ Setup Vagrant for the first time on Mojave, MacOS 10.14.6
 
 1. Install Homebrew 2.1.9 (This will also install Xcode Command Line Tools)
 
-https://brew.sh
+    https://brew.sh
 
 2. Install Virtualbox (Tested with 6.0.10)
 
-www.virtualbox.org
+    https://www.virtualbox.org
 
 I had to go through the install process twice to load the proper security extensions (System Preferences > Security & Privacy > General Tab > "Allow" on bottom)
 
 3. Install Vagrant (Tested with 2.2.5)
 
-www.vagrantup.com
+    https://www.vagrantup.com
 
 ### Install and Setup Linux / libvirt demo environment:
 
