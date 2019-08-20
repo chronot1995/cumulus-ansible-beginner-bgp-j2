@@ -1,2 +1,2 @@
 #!/bin/bash
-ansible-playbook begin-ansible-training-bgp-j2.yml
+ansible-playbook cumulus-ansible-beginner-bgp-j2.yml

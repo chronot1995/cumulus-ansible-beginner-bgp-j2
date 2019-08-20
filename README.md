@@ -1,12 +1,12 @@
-## begin-ansible-training-bgp-j2
+## cumulus-ansible-beginner-bgp-j2
 
-### UPDATES:
+### Summary:
 
-07/31/2019:
-  - Upgraded to Cumulus Linux 3.7.7
-  - Upgraded the underlying Topology Converter to 4.7.0
-  - Upgraded and tested Vagrant 2.2.5
-  - Upgraded and tested Virtualbox 6.0.10
+  - Cumulus Linux 3.7.8
+  - Underlying Topology Converter to 4.7.0
+  - Tested against Vagrant 2.2.5 on Mac and Linux
+  - Tested against Virtualbox 6.0.10 on Mac 10.14
+  - Tested against Libvirt 1.3.1 and Ubuntu 16.04 LTS
 
 ### Summary:
 
@@ -14,7 +14,7 @@ This is an Ansible demo which configures two Cumulus VX switches with BGP using 
 
 ### Network Diagram:
 
-![Network Diagram](https://github.com/chronot1995/begin-ansible-training-bgp-j2/blob/master/documentation/begin-ansible-training-bgp-j2.png)
+![Network Diagram](https://github.com/chronot1995/cumulus-ansible-beginner-bgp-j2/blob/master/documentation/cumulus-ansible-beginner-bgp-j2.png)
 
 ### Initializing the demo environment:
 
@@ -30,11 +30,11 @@ First, make sure that the following is currently running on your machine:
 
 3. Copy the Git repo to your local machine:
 
-    ```git clone https://github.com/chronot1995/begin-ansible-training-bgp-j2```
+    ```git clone https://github.com/chronot1995/cumulus-ansible-beginner-bgp-j2```
 
 4. Change directories to the following
 
-    ```begin-ansible-training-bgp-j2```
+    ```cumulus-ansible-beginner-bgp-j2```
 
 6. Run the following:
 
@@ -49,11 +49,11 @@ First, make sure that the following is currently running on your machine:
 
 2. Copy the Git repo unto the oob-mgmt-server:
 
-    ```git clone https://github.com/chronot1995/begin-ansible-training-bgp-j2```
+    ```git clone https://github.com/chronot1995/cumulus-ansible-beginner-bgp-j2```
 
 3. Change directories to the following
 
-    ```begin-ansible-training-bgp-j2/automation```
+    ```cumulus-ansible-beginner-bgp-j2/automation```
 
 4. Run the following:
 
@@ -129,7 +129,7 @@ B>* 10.2.2.2/32 [20/0] via fe80::4638:39ff:fe00:2, swp1, 00:06:02
 
 3. The following command was used to run the Topology Converter within the vx-simulation directory:
 
-    ```python3 topology_converter.py begin-ansible-training-bgp-j2.dot -c```
+    ```python3 topology_converter.py cumulus-ansible-beginner-bgp-j2.dot -c```
 
     After the above command is executed, the following configuration changes are necessary:
 
