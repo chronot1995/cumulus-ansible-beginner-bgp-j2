@@ -2,7 +2,7 @@
 # Created by Topology-Converter v4.7.0
 #    Template Revision: v4.7.0
 #    https://github.com/cumulusnetworks/topology_converter
-#    using topology data from: begin-ansible-training-bgp-j2.dot
+#    using topology data from: cumulus-ansible-beginner-bgp-j2.dot
 
 echo "################################################"
 echo "  Running Automatic Management Server Setup..."
@@ -15,8 +15,8 @@ echo " Detected vagrant user is: $username"
 #       KNOBS
 #######################
 
-REPOSITORY="https://github.com/CumulusNetworks/begin-ansible-training-bgp-j2"
-REPONAME="begin-ansible-training-bgp-j2"
+REPOSITORY="https://github.com/CumulusNetworks/cumulus-ansible-beginner-bgp-j2"
+REPONAME="cumulus-ansible-beginner-bgp-j2"
 
 #Install Automation Tools
 puppet=0
@@ -134,7 +134,7 @@ restrict ::1
 EOT
 
 echo " ### Creating cumulus user ###"
-useradd -m cumulus -m -s /bin/bash
+useradd -m cumulus
 
 echo " ### Setting Up DHCP ###"
 mv /home/$username/dhcpd.conf /etc/dhcp/dhcpd.conf
@@ -216,7 +216,7 @@ EOT
 
 echo "### Adding .bash_profile to auto login as cumulus user"
 echo "sudo su - cumulus" >> /home/vagrant/.bash_profile
-echo "exit" >> /home/vagrant/.bash_profile
+echo "exit" >> /home/vagrant/.bash_profile_
 echo "### Adding .ssh_config to avoid HostKeyChecking"
 printf "Host * \n\t StrictHostKeyChecking no\n" >> /home/cumulus/.ssh/config
 
