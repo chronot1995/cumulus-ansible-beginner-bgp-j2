@@ -1,6 +1,4 @@
-<div align="center">
-<BOLD>### cumulus-ansible-beginner-bgp-j2 ###</BOLD>
-</div>
+### cumulus-ansible-beginner-bgp-j2 ###
 
 ### Summary:
 
