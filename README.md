@@ -4,17 +4,49 @@
 
   - Cumulus Linux 3.7.8
   - Underlying Topology Converter to 4.7.0
-  - Tested against Vagrant 2.2.5 on Mac and Linux
+  - Tested against Vagrant 2.2.5 on Mac and Linux. Windows is not supported
   - Tested against Virtualbox 6.0.10 on Mac 10.14
   - Tested against Libvirt 1.3.1 and Ubuntu 16.04 LTS
 
-### Summary:
+### Description:
 
 This is an Ansible demo which configures two Cumulus VX switches with BGP using J2 / Jinja2 templates
 
 ### Network Diagram:
 
 ![Network Diagram](https://github.com/chronot1995/cumulus-ansible-beginner-bgp-j2/blob/master/documentation/cumulus-ansible-beginner-bgp-j2.png)
+
+### Install and Setup Virtualbox on Mac
+
+Setup Vagrant for the first time on Mojave, MacOS 10.14.6
+
+1. Install Homebrew 2.1.9 (This will also install Xcode Command Line Tools)
+
+    https://brew.sh
+
+2. Install Virtualbox (Tested with 6.0.10)
+
+    https://www.virtualbox.org
+
+I had to go through the install process twice to load the proper security extensions (System Preferences > Security & Privacy > General Tab > "Allow" on bottom)
+
+3. Install Vagrant (Tested with 2.2.5)
+
+    https://www.vagrantup.com
+
+### Install and Setup Linux / libvirt demo environment:
+
+First, make sure that the following is currently running on your machine:
+
+1. This demo was tested on a Ubuntu 16.04 VM w/ 4 processors and 32Gb of Diagram
+
+2. Following the instructions at the following link:
+
+    https://docs.cumulusnetworks.com/cumulus-vx/Development-Environments/Vagrant-and-Libvirt-with-KVM-or-QEMU/
+
+3. Download the latest Vagrant, 2.2.5, from the following location:
+
+    https://www.vagrantup.com/
 
 ### Initializing the demo environment:
 
@@ -113,38 +145,6 @@ C>* 10.1.1.1/32 is directly connected, lo, 00:06:11
 B>* 10.2.2.2/32 [20/0] via fe80::4638:39ff:fe00:2, swp1, 00:06:02
   *                    via fe80::4638:39ff:fe00:4, swp2, 00:06:02
 ```
-
-### Install and Setup Virtualbox on Mac
-
-Setup Vagrant for the first time on Mojave, MacOS 10.14.6
-
-1. Install Homebrew 2.1.9 (This will also install Xcode Command Line Tools)
-
-    https://brew.sh
-
-2. Install Virtualbox (Tested with 6.0.10)
-
-    https://www.virtualbox.org
-
-I had to go through the install process twice to load the proper security extensions (System Preferences > Security & Privacy > General Tab > "Allow" on bottom)
-
-3. Install Vagrant (Tested with 2.2.5)
-
-    https://www.vagrantup.com
-
-### Install and Setup Linux / libvirt demo environment:
-
-First, make sure that the following is currently running on your machine:
-
-1. This demo was tested on a Ubuntu 16.04 VM w/ 4 processors and 32Gb of Diagram
-
-2. Following the instructions at the following link:
-
-    https://docs.cumulusnetworks.com/cumulus-vx/Development-Environments/Vagrant-and-Libvirt-with-KVM-or-QEMU/
-
-3. Download the latest Vagrant, 2.2.5, from the following location:
-
-    https://www.vagrantup.com/
 
 ### Errata
 
