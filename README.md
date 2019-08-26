@@ -10,7 +10,7 @@
 
 ### Description:
 
-This is an Ansible demo which configures two Cumulus VX switches with BGP using J2 / Jinja2 templates
+This is an Ansible demo that configures two Cumulus VX switches with BGP using J2 / Jinja2 templates
 
 ### Network Diagram:
 
