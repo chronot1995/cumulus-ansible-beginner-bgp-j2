@@ -48,64 +48,64 @@ First, make sure that the following is currently running on your machine:
 
     https://www.vagrantup.com/
 
-    ### Initializing the demo environment:
+### Initializing the demo environment:
 
-    1. Copy the Git repo to your local machine:
+1. Copy the Git repo to your local machine:
 
-        ```
-        git clone https://github.com/chronot1995/cumulus-ansible-beginner-ospf-j2/
-        ```
+    ```
+    git clone https://github.com/chronot1995/cumulus-ansible-beginner-bgp-j2/
+    ```
 
-    2. Change directories to the following
+2. Change directories to the following
 
-        ```
-        cumulus-ansible-beginner-ospf-j2
-        ```
+    ```
+    cumulus-ansible-beginner-bgp-j2
+    ```
 
-    3a. Run the following for Virtualbox:
+3a. Run the following for Virtualbox:
 
-        ```
-        ./start-vagrant-vbox-poc.sh
-        ```
+    ```
+    ./start-vagrant-vbox-poc.sh
+    ```
 
-    3b. Run the following for Libvirt:
-        ```
-        ./start-vagrant-libvirt-poc.sh
-        ```
+3b. Run the following for Libvirt:
+    ```
+    ./start-vagrant-libvirt-poc.sh
+    ```
 
-    ### Running the Ansible Playbook
+### Running the Ansible Playbook
 
-    1a. SSH into the Virtualbox oob-mgmt-server:
+1a. SSH into the Virtualbox oob-mgmt-server:
 
-        ```
-        cd vx-vbox-simulation
-        vagrant ssh oob-mgmt-server
-        ```
+    ```
+    cd vx-vbox-simulation
+    vagrant ssh oob-mgmt-server
+    ```
 
-    1a. SSH into the Libvirt oob-mgmt-server:
+1a. SSH into the Libvirt oob-mgmt-server:
 
-        ```
-        cd vx-libvirt-simulation  
-        vagrant ssh oob-mgmt-server
-        ```
+    ```
+    cd vx-libvirt-simulation  
+    vagrant ssh oob-mgmt-server
+    ```
 
-    2. Copy the Git repo unto the oob-mgmt-server:
+2. Copy the Git repo unto the oob-mgmt-server:
 
-        ```
-        git clone https://github.com/chronot1995/cumulus-segment-routing
-        ```
+    ```
+    git clone https://github.com/chronot1995/cumulus-ansible-beginner-bgp-j2
+    ```
 
-    3. Change directories to the following
+3. Change directories to the following
 
-        ```
-        cumulus-segment-routing/automation
-        ```
+    ```
+    cumulus-ansible-beginner-bgp-j2/automation
+    ```
 
-    4. Run the following:
+4. Run the following:
 
-        ```
-        ./provision.sh
-        ```
+    ```
+    ./provision.sh
+    ```
 This will bring run the automation script and configure the two switches with BGP.
 
 ### Troubleshooting
@@ -166,7 +166,9 @@ B>* 10.2.2.2/32 [20/0] via fe80::4638:39ff:fe00:2, swp1, 00:06:02
 
 1. To shutdown the demo, run the following command from the vx-simulation directory:
 
-    ```vagrant destroy -f```
+    ```
+    vagrant destroy -f
+    ```
 
 2. This topology was configured using the Cumulus Topology Converter found at the following URL:
 
