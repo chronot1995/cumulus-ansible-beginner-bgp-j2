@@ -62,13 +62,13 @@ First, make sure that the following is currently running on your machine:
     cumulus-ansible-beginner-bgp-j2
     ```
 
-3a. Run the following for Virtualbox:
+3a. Run the following for Virtualbox
 
     ```
     ./start-vagrant-vbox-poc.sh
     ```
 
-3b. Run the following for Libvirt:
+3b. Run the following for Libvirt
 
     ```
     ./start-vagrant-libvirt-poc.sh
