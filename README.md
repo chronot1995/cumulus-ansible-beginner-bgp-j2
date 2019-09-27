@@ -2,7 +2,7 @@
 
 ### Summary:
 
-  - Cumulus Linux 3.7.8
+  - Cumulus Linux 3.7.9
   - Underlying Topology Converter to 4.7.0
   - Tested against Vagrant 2.1.5 on Mac and Linux. Windows is not supported.
   - Tested against Virtualbox 5.2.32 on Mac 10.14
@@ -48,48 +48,64 @@ First, make sure that the following is currently running on your machine:
 
     https://www.vagrantup.com/
 
-### Initializing the demo environment:
+    ### Initializing the demo environment:
 
-1. Copy the Git repo to your local machine:
+    1. Copy the Git repo to your local machine:
 
-    ```git clone https://github.com/chronot1995/cumulus-ansible-beginner-bgp-j2```
+        ```
+        git clone https://github.com/chronot1995/cumulus-ansible-beginner-ospf-j2/
+        ```
 
-2. Change directories to the following
+    2. Change directories to the following
 
-    ```cumulus-ansible-beginner-bgp-j2```
+        ```
+        cumulus-ansible-beginner-ospf-j2
+        ```
 
-3a. Run the following for Virtualbox:
+    3a. Run the following for Virtualbox:
 
-    ```./start-vagrant-vbox-poc.sh```
+        ```
+        ./start-vagrant-vbox-poc.sh
+        ```
 
-3b. Run the following for Libvirt:
+    3b. Run the following for Libvirt:
+        ```
+        ./start-vagrant-libvirt-poc.sh
+        ```
 
-    ```./start-vagrant-libvirt-poc.sh```
+    ### Running the Ansible Playbook
 
-### Running the Ansible Playbook
+    1a. SSH into the Virtualbox oob-mgmt-server:
 
-1a. SSH into the Virtualbox oob-mgmt-server:
+        ```
+        cd vx-vbox-simulation
+        vagrant ssh oob-mgmt-server
+        ```
 
-    ```cd vx-vbox-simulation```   
-    ```vagrant ssh oob-mgmt-server```
+    1a. SSH into the Libvirt oob-mgmt-server:
 
-1a. SSH into the Libvirt oob-mgmt-server:
+        ```
+        cd vx-libvirt-simulation  
+        vagrant ssh oob-mgmt-server
+        ```
 
-    ```cd vx-libvirt-simulation```   
-    ```vagrant ssh oob-mgmt-server```
+    2. Copy the Git repo unto the oob-mgmt-server:
 
-2. Copy the Git repo unto the oob-mgmt-server:
+        ```
+        git clone https://github.com/chronot1995/cumulus-segment-routing
+        ```
 
-    ```git clone https://github.com/chronot1995/cumulus-ansible-beginner-bgp-j2```
+    3. Change directories to the following
 
-3. Change directories to the following
+        ```
+        cumulus-segment-routing/automation
+        ```
 
-    ```cumulus-ansible-beginner-bgp-j2/automation```
+    4. Run the following:
 
-4. Run the following:
-
-    ```./provision.sh```
-
+        ```
+        ./provision.sh
+        ```
 This will bring run the automation script and configure the two switches with BGP.
 
 ### Troubleshooting
@@ -158,12 +174,14 @@ B>* 10.2.2.2/32 [20/0] via fe80::4638:39ff:fe00:2, swp1, 00:06:02
 
 3. The following command was used to run the Topology Converter within the appropriate vx-sim directory:
 
-    ```./topology_converter.py cumulus-segment-routing.dot -c --provider=virtualbox```
-    ```./topology_converter.py cumulus-segment-routing.dot -c --provider=libvirt```
+```
+     ./topology_converter.py cumulus-segment-routing.dot -c --provider=virtualbox
+     ./topology_converter.py cumulus-segment-routing.dot -c --provider=libvirt
+```
 
 After the above command is executed, the following configuration changes are necessary:
 
-4. Within ```vx-simulation/helper_scripts/auto_mgmt_network/OOB_Server_Config_auto_mgmt.sh```
+4. Within "<vx-sim>/helper_scripts/auto_mgmt_network/OOB_Server_Config_auto_mgmt.sh"
 
 The following stanza:
 
@@ -187,7 +205,7 @@ Will be replaced with the following:
     #Install Automation Tools
     puppet=0
     ansible=1
-    ansible_version=2.8.4
+    ansible_version=2.8.5
 
 Add the following ```echo``` right before the end of the file.
 
